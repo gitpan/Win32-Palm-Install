@@ -2,7 +2,7 @@ NAME
     Win32::Palm::Install - Simple installer for palm.
 
 VERSION
-    This document refers to version 0.1 of Win32::Palm::Install, released 18
+    This document refers to version 0.2 of Win32::Palm::Install, released 25
     september 2001.
 
 SYNOPSIS
@@ -29,8 +29,8 @@ BUGS
     It works for me ... please tell me if you observe strange behaviour.
 
 FILES
-            Win32::Palm::UsersDat
-            Win32::Palm::UsersDat::UserEntry
+            Win32::Palm::Install::UsersDat
+            Win32::Palm::Install::UsersDat::UserEntry
             Win32API::Registry
             File::Copy
             File::Basename

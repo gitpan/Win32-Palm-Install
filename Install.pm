@@ -1,8 +1,8 @@
 package Win32::Palm::Install;
-$VERSION = 0.1;
+$VERSION = 0.2;
 use strict;
 use Win32API::Registry qw (:ALL);
-use Win32::Palm::UsersDat;
+use Win32::Palm::Install::UsersDat;
 use File::Basename;
 use File::Copy;
 use Carp;
@@ -126,7 +126,7 @@ sub _init {
 
 	$self->set_PalmInstallDir( $palminstalldir );
 		
-	$self->set_UserEntry( Win32::Palm::UsersDat->new( $palmpath . '\users.dat' ) );
+	$self->set_UserEntry( Win32::Palm::Install::UsersDat->new( $palmpath . '\users.dat' ) );
 }
 
 sub AUTOLOAD {
@@ -155,8 +155,8 @@ sub AUTOLOAD {
 
 =head1 VERSION
 
-This document refers to version 0.1 of Win32::Palm::Install, released
-18 september 2001.
+This document refers to version 0.2 of Win32::Palm::Install, released
+25 september 2001.
 
 =head1 SYNOPSIS
 
@@ -186,8 +186,8 @@ It works for me ... please tell me if you observe strange behaviour.
 
 =head1 FILES
 
-	Win32::Palm::UsersDat
-	Win32::Palm::UsersDat::UserEntry
+	Win32::Palm::Install::UsersDat
+	Win32::Palm::Install::UsersDat::UserEntry
 	Win32API::Registry
 	File::Copy
 	File::Basename

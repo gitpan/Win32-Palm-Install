@@ -4,5 +4,5 @@ Makefile.PL
 README
 test.pl
 Install.pm
-UsersDat.pm
-UsersDat/UserEntry.pm
+Install/UsersDat.pm
+Install/UsersDat/UserEntry.pm

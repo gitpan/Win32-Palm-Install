@@ -1,4 +1,4 @@
-package Win32::Palm::UsersDat::UserEntry;
+package Win32::Palm::Install::UsersDat::UserEntry;
 $VERSION = 0.1;
 use strict;
 use Carp;
@@ -6,7 +6,7 @@ use vars '$AUTOLOAD';
 
 =head1 NAME
 
-Win32::Palm::UsersDat::UserEntry - Class to hold user information
+Win32::Palm::Install::UsersDat::UserEntry - Class to hold user information
 
 =cut
 
@@ -65,14 +65,14 @@ sub AUTOLOAD {
 
 =head1 VERSION
 
-This document refers to version 0.1 of Win32::Palm::UsersDat::UserEntry,
-released 18 september 2001.
+This document refers to version 0.2 of Win32::Palm::Install::UsersDat::UserEntry,
+released 25 september 2001.
 
 =head1 SYNOPSIS
 
-	use Win32::Palm::UsersDat::UserEntry;
+	use Win32::Palm::Install::UsersDat::UserEntry;
 
-	my $ue = Win32::Palm::UserDat::UserEntry->new(
+	my $ue = Win32::Palm::Install::UserDat::UserEntry->new(
 			-HotsyncID 	=> $hotsyncid,
 			-LongName	=> $longname,
 			-DirName	=> $dirname,

@@ -1,14 +1,14 @@
-package Win32::Palm::UsersDat;
+package Win32::Palm::Install::UsersDat;
 use Carp;
 use strict;
-use Win32::Palm::UsersDat::UserEntry;
+use Win32::Palm::Install::UsersDat::UserEntry;
 use vars qw( $DEBUG );
 
 # $DEBUG++;
 
 =head1 NAME
 
-Win32::Palm::UsersDat - Parser for the users.dat file for Palm
+Win32::Palm::Install::UsersDat - Parser for the users.dat file for Palm
 
 =cut
 
@@ -43,7 +43,7 @@ sub get_Filename {
 sub add_UserEntry {
 	my $self = shift;
 
-	my $ue = Win32::Palm::UsersDat::UserEntry->new( @_ );
+	my $ue = Win32::Palm::Install::UsersDat::UserEntry->new( @_ );
 	
 	push @{$self->{_UserEntries}}, $ue;
 
@@ -169,13 +169,13 @@ sub _parse {
 
 =head1 VERSION
 
-This document refers to version 0.1 of Win32::Palm::UsersDat,
-released 18 september 2001.
+This document refers to version 0.2 of Win32::Palm::Install::UsersDat,
+released 25 september 2001.
 
 =head1 SYNOPSIS
 
-	use Win32::Palm::UsersDat;
-	my $ud = Win32::Palm::UsersDat->new( 'c:\Palm\users.dat' );
+	use Win32::Palm::Install::UsersDat;
+	my $ud = Win32::Palm::Install::UsersDat->new( 'c:\Palm\users.dat' );
 
 	foreach my $ue ( $ud->get_UserEntry() ) {
 		print $ue->get_LongName . "\n";
@@ -195,11 +195,11 @@ Only user information is extracted for the moment!
 
 =head2 Constructor and initialisation
 
-	Win32::Palm::UserDat->new( $filename );
+	Win32::Palm::Install::UserDat->new( $filename );
 
 =head2 Class and Object methods
 
-	my $ud = Win32::Palm::UserDat->new( $filename );
+	my $ud = Win32::Palm::Install::UserDat->new( $filename );
 
 	$ud->get_UserCount()
 	
@@ -208,7 +208,7 @@ Only user information is extracted for the moment!
 
 =head1 FILES
 
-	Win32::Palm::UsersDat::UserEntry
+	Win32::Palm::Install::UsersDat::UserEntry
 
 =head1 AUTHOR
 

@@ -1,4 +1,10 @@
-Revision history for Perl extension Win32::Palm.
+Revision history for Perl extension Win32::Palm::Install.
+
+0.02  Tue Sep 25 19:57:44 CEST 2001
+	- It did not install ... so I fixed it. I've the
+	  impression I do not totally grasp the workings of
+	  the Makefile.PL script. Mmmmh ... need to read
+	  some more perl stuff ;-)
 
 0.01  Wed Sep 19 11:31:15 2001
 	- original version; created by h2xs 1.21 with options
