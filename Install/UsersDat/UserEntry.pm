@@ -42,6 +42,8 @@ sub AUTOLOAD {
 	no strict 'refs';
 	my ($self, $newval) = @_;
 
+	return if $AUTOLOAD =~ /::DESTROY$/;
+
 	# get_ method
 	if ($AUTOLOAD =~ /.*::get(_\w+)/ )
 	{

@@ -77,7 +77,7 @@ sub _parse {
 	# Skip class entry if nesessary
 	$buffer = "";
 	$readlen = read(F, $buffer, 2 );
-	croak "Error on class flag" if $readlen =! 2;
+	croak "Error on class flag" if $readlen != 2;
 	
 	if ( unpack( "S", $buffer ) == 0xffff ) {
 		$buffer = "";
@@ -151,7 +151,9 @@ sub _parse {
 		}
 		#  skip until 0x8001 or EOF
 		$buffer = "";
-		$readlen = read( F, $buffer, 2 ) while ( $readlen && unpack("S", $buffer) != 0x8001 );
+		do {
+			$readlen = read( F, $buffer, 2 );
+		} while ( $readlen && unpack("S", $buffer) != 0x8001 );
 
 		$self->add_UserEntry(	-HotsyncID 	=> $hotsyncid,
 					-LongName	=> $longname,

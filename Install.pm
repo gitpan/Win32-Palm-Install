@@ -1,10 +1,11 @@
 package Win32::Palm::Install;
-$VERSION = 0.2;
+$VERSION = '0.3';
 use strict;
 use Win32API::Registry qw (:ALL);
 use Win32::Palm::Install::UsersDat;
 use File::Basename;
 use File::Copy;
+use File::Spec;
 use Carp;
 use vars qw( $AUTOLOAD );
 
@@ -63,20 +64,12 @@ sub install {
 
 	my $syncid = sprintf("Install%d", $found->get_HotsyncID);
 	my $palmsync = $self->get_PalmSync;
-	my $fileto = $self->get_PalmPath() 
-		     . 
-		     "\\"
-		     .
-		     $found->get_DirName() 
-	  	     .
-   	   	     "\\"
-		     . 
-		     $self->get_PalmInstallDir() 
-		     . 
-		     "\\" 
-		     .
-		     $name . $suffix;
-
+	my $fileto = File::Spec->catfile(
+					$self->get_PalmPath(), 
+		     		$found->get_DirName(), 
+		     		$self->get_PalmInstallDir(), 
+		     		$name . $suffix
+					);
 	copy($filename, $fileto);
 	my $key;
 	RegOpenKeyEx( HKEY_CURRENT_USER, $palmsync, 0, KEY_WRITE, $key );
@@ -132,6 +125,8 @@ sub _init {
 sub AUTOLOAD {
 	no strict 'refs';
 	my ($self, $newval) = @_;
+
+	return if $AUTOLOAD =~ /::DESTROY$/;
 
 	# get_ method
 	if ($AUTOLOAD =~ /.*::get(_\w+)/ )

@@ -1,8 +1,9 @@
 Changes
-MANIFEST
-Makefile.PL
-README
-test.pl
 Install.pm
 Install/UsersDat.pm
 Install/UsersDat/UserEntry.pm
+MANIFEST
+Makefile.PL
+README
+t/01test.t
+t/Win32Install.prc
